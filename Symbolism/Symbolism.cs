@@ -17,66 +17,68 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using static Symbolism.ListConstructor;
+// using Symbolism.ListConstructor;
+
+using Symbolism.Trigonometric;
 
 namespace Symbolism
 {
     public abstract class MathObject
     {
         //////////////////////////////////////////////////////////////////////
-        public static implicit operator MathObject(int n) => new Integer(n); 
+        public static implicit operator MathObject(int n) { return new Integer(n); }
 
-        public static implicit operator MathObject(bool val) => new Bool(val);
+        public static implicit operator MathObject(bool val) { return new Bool(val); }
         //////////////////////////////////////////////////////////////////////
         #region overloads for 'int'
-        public static MathObject operator +(MathObject a, int b) => a + new Integer(b);
-        public static MathObject operator -(MathObject a, int b) => a - new Integer(b);
-        public static MathObject operator *(MathObject a, int b) => a * new Integer(b);
-        public static MathObject operator /(MathObject a, int b) => a / new Integer(b);                                                                  
-        public static MathObject operator ^(MathObject a, int b) => a ^ new Integer(b);
-        public static MathObject operator +(int a, MathObject b) => new Integer(a) + b;                                                                  
-        public static MathObject operator -(int a, MathObject b) => new Integer(a) - b;
-        public static MathObject operator *(int a, MathObject b) => new Integer(a) * b;
-        public static MathObject operator /(int a, MathObject b) => new Integer(a) / b;
-        public static MathObject operator ^(int a, MathObject b) => new Integer(a) ^ b;
+        public static MathObject operator +(MathObject a, int b) { return a + new Integer(b); }
+        public static MathObject operator -(MathObject a, int b) { return a - new Integer(b); }
+        public static MathObject operator *(MathObject a, int b) { return a * new Integer(b); }
+        public static MathObject operator /(MathObject a, int b) { return a / new Integer(b); }
+        public static MathObject operator ^(MathObject a, int b) { return a ^ new Integer(b); }
+        public static MathObject operator +(int a, MathObject b) { return new Integer(a) + b; }
+        public static MathObject operator -(int a, MathObject b) { return new Integer(a) - b; }
+        public static MathObject operator *(int a, MathObject b) { return new Integer(a) * b; }
+        public static MathObject operator /(int a, MathObject b) { return new Integer(a) / b; }
+        public static MathObject operator ^(int a, MathObject b) { return new Integer(a) ^ b; }
         #endregion
         //////////////////////////////////////////////////////////////////////
         #region overloads for 'double'
 
-        public static MathObject operator +(MathObject a, double b) => a + new DoubleFloat(b);
-        public static MathObject operator -(MathObject a, double b) => a - new DoubleFloat(b);
-        public static MathObject operator *(MathObject a, double b) => a * new DoubleFloat(b);
-        public static MathObject operator /(MathObject a, double b) => a / new DoubleFloat(b);
-        public static MathObject operator ^(MathObject a, double b) => a ^ new DoubleFloat(b);
-        public static MathObject operator +(double a, MathObject b) => new DoubleFloat(a) + b;
-        public static MathObject operator -(double a, MathObject b) => new DoubleFloat(a) - b;
-        public static MathObject operator *(double a, MathObject b) => new DoubleFloat(a) * b;
-        public static MathObject operator /(double a, MathObject b) => new DoubleFloat(a) / b;
-        public static MathObject operator ^(double a, MathObject b) => new DoubleFloat(a) ^ b;
+        public static MathObject operator +(MathObject a, double b) { return a + new DoubleFloat(b); }
+        public static MathObject operator -(MathObject a, double b) { return a - new DoubleFloat(b); }
+        public static MathObject operator *(MathObject a, double b) { return a * new DoubleFloat(b); }
+        public static MathObject operator /(MathObject a, double b) { return a / new DoubleFloat(b); }
+        public static MathObject operator ^(MathObject a, double b) { return a ^ new DoubleFloat(b); }
+        public static MathObject operator +(double a, MathObject b) { return new DoubleFloat(a) + b; }
+        public static MathObject operator -(double a, MathObject b) { return new DoubleFloat(a) - b; }
+        public static MathObject operator *(double a, MathObject b) { return new DoubleFloat(a) * b; }
+        public static MathObject operator /(double a, MathObject b) { return new DoubleFloat(a) / b; }
+        public static MathObject operator ^(double a, MathObject b) { return new DoubleFloat(a) ^ b; }
 
         #endregion
         //////////////////////////////////////////////////////////////////////
-        public static Equation operator ==(MathObject a, MathObject b) => new Equation(a, b);
-        public static Equation operator !=(MathObject a, MathObject b) => new Equation(a, b, Equation.Operators.NotEqual);
-        public static Equation operator <(MathObject a, MathObject b) => new Equation(a, b, Equation.Operators.LessThan);
-        public static Equation operator >(MathObject a, MathObject b) => new Equation(a, b, Equation.Operators.GreaterThan);
+        public static Equation operator ==(MathObject a, MathObject b) { return new Equation(a, b); }
+        public static Equation operator !=(MathObject a, MathObject b) { return new Equation(a, b, Equation.Operators.NotEqual); }
+        public static Equation operator <(MathObject a, MathObject b) { return new Equation(a, b, Equation.Operators.LessThan); }
+        public static Equation operator >(MathObject a, MathObject b) { return new Equation(a, b, Equation.Operators.GreaterThan); }
 
-        public static Equation operator ==(MathObject a, double b) => new Equation(a, new DoubleFloat(b));
-        public static Equation operator ==(double a, MathObject b) => new Equation(new DoubleFloat(a), b);
+        public static Equation operator ==(MathObject a, double b) { return new Equation(a, new DoubleFloat(b)); }
+        public static Equation operator ==(double a, MathObject b) { return new Equation(new DoubleFloat(a), b); }
 
-        public static Equation operator !=(MathObject a, double b) => new Equation(a, new DoubleFloat(b), Equation.Operators.NotEqual);
-        public static Equation operator !=(double a, MathObject b) => new Equation(new DoubleFloat(a), b, Equation.Operators.NotEqual);
+        public static Equation operator !=(MathObject a, double b) { return new Equation(a, new DoubleFloat(b), Equation.Operators.NotEqual); }
+        public static Equation operator !=(double a, MathObject b) { return new Equation(new DoubleFloat(a), b, Equation.Operators.NotEqual); }
 
-        public static Equation operator ==(MathObject a, int b) => new Equation(a, new Integer(b));
-        public static Equation operator ==(int a, MathObject b) => new Equation(new Integer(a), b);
-        public static Equation operator !=(MathObject a, int b) => new Equation(a, new Integer(b), Equation.Operators.NotEqual);
-        public static Equation operator !=(int a, MathObject b) => new Equation(new Integer(a), b, Equation.Operators.NotEqual);
+        public static Equation operator ==(MathObject a, int b) { return new Equation(a, new Integer(b)); }
+        public static Equation operator ==(int a, MathObject b) { return new Equation(new Integer(a), b); }
+        public static Equation operator !=(MathObject a, int b) { return new Equation(a, new Integer(b), Equation.Operators.NotEqual); }
+        public static Equation operator !=(int a, MathObject b) { return new Equation(new Integer(a), b, Equation.Operators.NotEqual); }
         //////////////////////////////////////////////////////////////////////
-        public static MathObject operator +(MathObject a, MathObject b) => new Sum(a, b).Simplify();
-        public static MathObject operator -(MathObject a, MathObject b) => new Difference(a, b).Simplify();
-        public static MathObject operator *(MathObject a, MathObject b) => new Product(a, b).Simplify();
-        public static MathObject operator /(MathObject a, MathObject b) => new Quotient(a, b).Simplify();
-        public static MathObject operator ^(MathObject a, MathObject b) => new Power(a, b).Simplify();
+        public static MathObject operator +(MathObject a, MathObject b) { return new Sum(a, b).Simplify(); }
+        public static MathObject operator -(MathObject a, MathObject b) { return new Difference(a, b).Simplify(); }
+        public static MathObject operator *(MathObject a, MathObject b) { return new Product(a, b).Simplify(); }
+        public static MathObject operator /(MathObject a, MathObject b) { return new Quotient(a, b).Simplify(); }
+        public static MathObject operator ^(MathObject a, MathObject b) { return new Power(a, b).Simplify(); }
 
         public static MathObject operator -(MathObject a) { return new Difference(a).Simplify(); }
         
@@ -107,9 +109,9 @@ namespace Symbolism
 
         public static ToStringForms ToStringForm = ToStringForms.Full;
 
-        public virtual string FullForm() => base.ToString();
+        public virtual string FullForm() { return base.ToString(); }
 
-        public virtual string StandardForm() => FullForm();
+        public virtual string StandardForm() { return FullForm(); }
 
         public override string ToString()
         {
@@ -120,14 +122,14 @@ namespace Symbolism
             throw new Exception();
         }
 
-        public virtual MathObject Numerator() => this;
+        public virtual MathObject Numerator() { return this; }
 
-        public virtual MathObject Denominator() => 1;
+        public virtual MathObject Denominator() { return 1; }
 
         public override bool Equals(object obj)
         { throw new Exception("MathObject.Equals called - abstract class"); }
 
-        public override int GetHashCode() => base.GetHashCode();        
+        public override int GetHashCode() { return base.GetHashCode(); }
     }
 
     public class Equation : MathObject
@@ -154,12 +156,14 @@ namespace Symbolism
             throw new Exception();
         }
         
-        public override bool Equals(object obj) =>
+        public override bool Equals(object obj) {
+            return
             obj is Equation &&
             a.Equals((obj as Equation).a) &&
             b.Equals((obj as Equation).b) &&
             Operator == (obj as Equation).Operator;
-    
+        }
+
         Boolean ToBoolean()
         {
             if (a is Bool && b is Bool) return (a as Bool).Equals(b);
@@ -214,7 +218,7 @@ namespace Symbolism
             return this;
         }
 
-        public override int GetHashCode() => new { a, b }.GetHashCode();
+        public override int GetHashCode() { return new { a, b }.GetHashCode(); }
         
     }
 
@@ -224,11 +228,16 @@ namespace Symbolism
 
         public Bool(bool b) { val = b; }
         
-        public override string FullForm() => val.ToString();
+        public override string FullForm() { return val.ToString(); }
         
-        public override bool Equals(object obj) => val == (obj as Bool)?.val;
-        
-        public override int GetHashCode() => val.GetHashCode();
+        public override bool Equals(object obj) { 
+            if ((obj as Bool) != null) {
+                return val == (obj as Bool).val;
+            }
+            return false;
+        }
+
+        public override int GetHashCode() { return val.GetHashCode(); }
     }
 
     //public class NotEqual
@@ -254,13 +263,18 @@ namespace Symbolism
 
         public Integer(int n) { val = n; }
         
-        public override string FullForm() => val.ToString();
+        public override string FullForm() { return val.ToString(); }
         
-        public override bool Equals(object obj) => val == (obj as Integer)?.val;
+        public override bool Equals(object obj) {
+            if ((obj as Integer) != null) {
+                return val == (obj as Integer).val;
+            }
+            return false;
+        }
         
-        public override int GetHashCode() => val.GetHashCode();
+        public override int GetHashCode() { return val.GetHashCode(); }
 
-        public override DoubleFloat ToDouble() => new DoubleFloat(val);        
+        public override DoubleFloat ToDouble() { return new DoubleFloat(val); }
     }
 
     public class DoubleFloat : Number
@@ -271,7 +285,7 @@ namespace Symbolism
 
         public DoubleFloat(double n) { val = n; }
 
-        public override string FullForm() => val.ToString("R");
+        public override string FullForm() { return val.ToString("R"); }
 
         //public bool EqualWithinTolerance(DoubleFloat obj)
         //{
@@ -291,9 +305,9 @@ namespace Symbolism
             return false;
         }
         
-        public override int GetHashCode() => val.GetHashCode();
+        public override int GetHashCode() { return val.GetHashCode(); }
 
-        public override DoubleFloat ToDouble() => this;
+        public override DoubleFloat ToDouble() { return this; }
     }
 
     public class Fraction : Number
@@ -304,21 +318,27 @@ namespace Symbolism
         public Fraction(Integer a, Integer b)
         { numerator = a; denominator = b; }
         
-        public override string FullForm() => numerator + "/" + denominator;
+        public override string FullForm() { return numerator + "/" + denominator; }
 
-        public override DoubleFloat ToDouble() => new DoubleFloat((double)numerator.val / (double)denominator.val);
+        public override DoubleFloat ToDouble() { return new DoubleFloat((double)numerator.val / (double)denominator.val); }
         //////////////////////////////////////////////////////////////////////
         
-        public override bool Equals(object obj) =>
-            numerator == (obj as Fraction)?.numerator
-            &&
-            denominator == (obj as Fraction)?.denominator;            
+        public override bool Equals(object obj) {
+            if (obj == null) {
+                return false;
+            } else {
+                return
+                    numerator == (obj as Fraction).numerator
+                    &&
+                    denominator == (obj as Fraction).denominator;
+            }
+        }
         
-        public override int GetHashCode() => new { numerator, denominator }.GetHashCode();
+        public override int GetHashCode() { return new { numerator, denominator }.GetHashCode(); }
         
-        public override MathObject Numerator() => numerator;
+        public override MathObject Numerator() { return numerator; }
 
-        public override MathObject Denominator() => denominator;   
+        public override MathObject Denominator() { return denominator; }
     }
 
     public static class Rational
@@ -555,22 +575,23 @@ namespace Symbolism
 
         public Symbol(String str) { name = str; }
 
-        public override string FullForm() => name;
+        public override string FullForm() { return name; }
 
-        public override int GetHashCode() => name.GetHashCode();
+        public override int GetHashCode() { return name.GetHashCode(); }
 
-        public override bool Equals(Object obj) => 
-            obj is Symbol ? name == (obj as Symbol).name : false;        
+        public override bool Equals(Object obj) {
+            return obj is Symbol ? name == (obj as Symbol).name : false;
+        }
     }
 
     public static class ListConstructor
     {
-        public static List<T> List<T>(params T[] items) => new List<T>(items);
+        public static List<T> List<T>(params T[] items) { return new List<T>(items); }
     }
 
     public static class ListUtils
     {
-        public static bool IsEmpty(this List<MathObject> obj) => obj.Count == 0;
+        public static bool IsEmpty(this List<MathObject> obj) { return obj.Count == 0; }
 
         public static List<MathObject> Cons(this List<MathObject> obj, MathObject elt)
         {
@@ -579,7 +600,7 @@ namespace Symbolism
             return res;
         }
 
-        public static List<MathObject> Cdr(this List<MathObject> obj) => obj.GetRange(1, obj.Count - 1);
+        public static List<MathObject> Cdr(this List<MathObject> obj) { return obj.GetRange(1, obj.Count - 1); }
 
         public static bool equal(List<MathObject> a, List<MathObject> b)
         {
@@ -599,24 +620,39 @@ namespace Symbolism
     {
         public String name;
 
+        // Symbolism.Trigonometric.Constructors.
+        public static MathObject sin(MathObject obj) { return new Sin(obj).Simplify(); }
+        public static MathObject cos(MathObject obj) { return new Cos(obj).Simplify(); }
+        public static MathObject tan(MathObject obj) { return new Tan(obj).Simplify(); }
+        public static MathObject asin(MathObject obj) { return new Asin(obj).Simplify(); }
+        public static MathObject atan(MathObject obj) { return new Atan(obj).Simplify(); }
+
+        // Symbolism.Constructors
+        public static MathObject sqrt(MathObject obj) { return obj ^ (new Integer(1) / new Integer(2)); }
+        public static MathObject and(params MathObject[] ls) { return new And() { args = ls.ToList() }.Simplify(); }
+        public static MathObject or(params MathObject[] ls) { return new Or() { args = ls.ToList() }.Simplify(); }
+
+
         public List<MathObject> args;
 
         public delegate MathObject Proc(params MathObject[] ls);
 
         public Proc proc;
 
-        public override bool Equals(object obj) =>
+        public override bool Equals(object obj) {
+            return
             GetType() == obj.GetType() &&
             name == (obj as Function).name &&
             ListUtils.equal(args, ((Function)obj).args);
-        
-        public MathObject Simplify() => proc == null ? this : proc(args.ToArray());
-        
-        public override string FullForm() => $"{name}({string.Join(", ", args)})";
-        
-        public MathObject Clone() => MemberwiseClone() as MathObject;
+        }
 
-        public override int GetHashCode() => new { name, args }.GetHashCode();
+        public MathObject Simplify() { return proc == null ? this : proc(args.ToArray()); }
+        
+        public override string FullForm() { return string.Format("{0}({1})", name, string.Join(", ", args)); }
+        
+        public MathObject Clone() { return MemberwiseClone() as MathObject; }
+
+        public override int GetHashCode() { return new { name, args }.GetHashCode(); }
     }
 
     public static class FunctionExtensions
@@ -725,9 +761,9 @@ namespace Symbolism
    
     public static class OrderRelation
     {
-        public static MathObject Base(MathObject u) => u is Power ? (u as Power).bas : u;
+        public static MathObject Base(MathObject u) { return u is Power ? (u as Power).bas : u; }
         
-        public static MathObject Exponent(MathObject u) => u is Power ? (u as Power).exp : 1;
+        public static MathObject Exponent(MathObject u) { return u is Power ? (u as Power).exp : 1; }
         
         public static MathObject Term(this MathObject u)
         {
@@ -739,8 +775,10 @@ namespace Symbolism
             return new Product(u);
         }
 
-        public static MathObject Const(this MathObject u) =>
+        public static MathObject Const(this MathObject u) {
+            return
             (u is Product && (u as Product).elts[0] is Number) ? (u as Product).elts[0] : 1;
+        }
 
         public static bool O3(List<MathObject> uElts, List<MathObject> vElts)
         {
@@ -867,26 +905,29 @@ namespace Symbolism
 
         public Power(MathObject a, MathObject b) { bas = a; exp = b; }
 
-        public override string FullForm() =>
-            string.Format("{0} ^ {1}",
-                bas.Precedence() < Precedence() ? $"({bas})" : $"{bas}",
-                exp.Precedence() < Precedence() ? $"({exp})" : $"{exp}");
+        public override string FullForm() {
+            return string.Format("{0} ^ {1}",
+                string.Format(bas.Precedence() < Precedence() ? "({0})" : "{0}", bas),
+                string.Format(exp.Precedence() < Precedence() ? "({0})" : "{0}", exp));
+        }
 
 
         public override string StandardForm()
         {
             // x ^ 1/2   ->   sqrt(x)
             
-            if (exp == new Integer(1) / new Integer(2)) return $"sqrt({bas})";
+            if (exp == new Integer(1) / new Integer(2)) return string.Format("sqrt({0})", bas);
 
             return string.Format("{0} ^ {1}",
-                bas.Precedence() < Precedence() ? $"({bas})" : $"{bas}",
-                exp.Precedence() < Precedence() ? $"({exp})" : $"{exp}");
+                string.Format(bas.Precedence() < Precedence() ? "({0})" : "{0}", bas),
+                string.Format(exp.Precedence() < Precedence() ? "({0})" : "{0}", exp));
         }
         
-        public override bool Equals(object obj) => 
+        public override bool Equals(object obj) {
+            return
             obj is Power && bas == (obj as Power).bas && exp == (obj as Power).exp;
-        
+        }
+
         public MathObject Simplify()
         {
             var v = bas;
@@ -962,7 +1003,7 @@ namespace Symbolism
             return 1;
         }
 
-        public override int GetHashCode() => new { bas, exp }.GetHashCode();
+        public override int GetHashCode() { return new { bas, exp }.GetHashCode(); }
     }
 
     public class Product : MathObject
@@ -972,34 +1013,39 @@ namespace Symbolism
         public Product(params MathObject[] ls)
         { elts = new List<MathObject>(ls); }
 
-        public override string FullForm() =>
-            string.Join(" * ", elts.ConvertAll(elt => elt.Precedence() < Precedence() ? $"({elt})" : $"{elt}"));
+        public override string FullForm() {
+            return string.Join(" * ",
+                elts.ConvertAll(elt => string.Format(elt.Precedence() < Precedence() ? "({0})" : "{0}", elt)));
+        }
 
         public override string StandardForm()
         {
             if (this.Denominator() == 1)
             {
-                if (this.Const() < 0) return $"-{(this * -1)}";
+                if (this.Const() < 0) return string.Format("-{0}", (this * -1));
                 
                 return string.Join(" * ", 
-                    elts.ConvertAll(elt => elt.Precedence() < Precedence() || (elt is Power && (elt as Power).exp != new Integer(1) / 2) ? $"({elt})" : $"{elt}"));
+                    elts.ConvertAll(elt =>
+                        string.Format(elt.Precedence() < Precedence() || (elt is Power && (elt as Power).exp != new Integer(1) / 2) ? "({0})" : "{0}", elt)));
             }
 
             var expr_a = this.Numerator();
             var expr_b = this.Denominator();
 
-            var expr_a_ = expr_a is Sum || (expr_a is Power && (expr_a as Power).exp != new Integer(1) / 2) ? $"({expr_a})" : $"{expr_a}";
+            var expr_a_ = string.Format(expr_a is Sum || (expr_a is Power && (expr_a as Power).exp != new Integer(1) / 2) ? "({0})" : "{0}", expr_a);
 
-            var expr_b_ = expr_b is Sum || expr_b is Product || (expr_b is Power && (expr_b as Power).exp != new Integer(1) / 2) ? $"({expr_b})" : $"{expr_b}";
+            var expr_b_ = string.Format(expr_b is Sum || expr_b is Product || (expr_b is Power && (expr_b as Power).exp != new Integer(1) / 2) ? "({0})" : "{0}", expr_b);
             
-            return $"{expr_a_} / {expr_b_}";
+            return string.Format("{0} / {1}", expr_a_, expr_b_);
         }
         
-        public override int GetHashCode() => elts.GetHashCode();
+        public override int GetHashCode() { return elts.GetHashCode(); }
 
-        public override bool Equals(object obj) => 
+        public override bool Equals(object obj) {
+            return
             obj is Product && ListUtils.equal(elts, (obj as Product).elts);
-        
+        }
+
         static List<MathObject> MergeProducts(List<MathObject> pElts, List<MathObject> qElts)
         {
             if (pElts.Count == 0) return qElts;
@@ -1011,15 +1057,15 @@ namespace Symbolism
             var q = qElts[0];
             var qs = qElts.Cdr();
 
-            var res = RecursiveSimplify(List(p, q));
+            var res = RecursiveSimplify(ListConstructor.List(p, q));
 
             if (res.Count == 0) return MergeProducts(ps, qs);
 
             if (res.Count == 1) return MergeProducts(ps, qs).Cons(res[0]);
 
-            if (ListUtils.equal(res, List(p, q))) return MergeProducts(ps, qElts).Cons(p);
+            if (ListUtils.equal(res, ListConstructor.List(p, q))) return MergeProducts(ps, qElts).Cons(p);
 
-            if (ListUtils.equal(res, List(q, p))) return MergeProducts(pElts, qs).Cons(q);
+            if (ListUtils.equal(res, ListConstructor.List(q, p))) return MergeProducts(pElts, qs).Cons(q);
 
             throw new Exception();
         }
@@ -1036,7 +1082,7 @@ namespace Symbolism
 
             if (val == 1.0) return new List<MathObject>() { };
 
-            return List<MathObject>(new DoubleFloat(val));
+            return ListConstructor.List<MathObject>(new DoubleFloat(val));
         }
 
         public static List<MathObject> RecursiveSimplify(List<MathObject> elts)
@@ -1048,9 +1094,9 @@ namespace Symbolism
                         ((Product)elts[0]).elts,
                         ((Product)elts[1]).elts);
 
-                if (elts[0] is Product) return MergeProducts(((Product)elts[0]).elts, List(elts[1]));
+                if (elts[0] is Product) return MergeProducts(((Product)elts[0]).elts, ListConstructor.List(elts[1]));
 
-                if (elts[1] is Product) return MergeProducts(List(elts[0]), ((Product)elts[1]).elts);
+                if (elts[1] is Product) return MergeProducts(ListConstructor.List(elts[0]), ((Product)elts[1]).elts);
 
                 //////////////////////////////////////////////////////////////////////
 
@@ -1070,11 +1116,11 @@ namespace Symbolism
                     
                     if (P == 1) return new List<MathObject>() { };
 
-                    return List(P);
+                    return ListConstructor.List(P);
                 }
 
-                if (elts[0] == 1) return List(elts[1]);
-                if (elts[1] == 1) return List(elts[0]);
+                if (elts[0] == 1) return ListConstructor.List(elts[1]);
+                if (elts[1] == 1) return ListConstructor.List(elts[0]);
 
                 var p = elts[0];
                 var q = elts[1];
@@ -1085,12 +1131,12 @@ namespace Symbolism
 
                     if (res == 1) return new List<MathObject>() { };
 
-                    return List(res);
+                    return ListConstructor.List(res);
                 }
 
-                if (OrderRelation.Compare(q, p)) return List(q, p);
+                if (OrderRelation.Compare(q, p)) return ListConstructor.List(q, p);
 
-                return List(p, q);
+                return ListConstructor.List(p, q);
             }
 
             if (elts[0] is Product)
@@ -1100,7 +1146,7 @@ namespace Symbolism
                         RecursiveSimplify(elts.Cdr()));
 
             return MergeProducts(
-                List(elts[0]),
+                ListConstructor.List(elts[0]),
                 RecursiveSimplify(elts.Cdr()));
 
             throw new Exception();
@@ -1126,12 +1172,17 @@ namespace Symbolism
             return new Product() { elts = res };
         }
 
-        public override MathObject Numerator() => 
-            new Product() { elts = elts.Select(elt => elt.Numerator()).ToList() }.Simplify();
+        public override MathObject Numerator() {
+            return
+                new Product() { elts = elts.Select(elt => elt.Numerator()).ToList() }.Simplify();
+        }
 
-        public override MathObject Denominator() =>
+        public override MathObject Denominator() {
+            return
             new Product() { elts = elts.Select(elt => elt.Denominator()).ToList() }.Simplify();
+        }
     }
+
 
     public class Sum : MathObject
     {
@@ -1139,10 +1190,13 @@ namespace Symbolism
 
         public Sum(params MathObject[] ls) { elts = new List<MathObject>(ls); }
         
-        public override int GetHashCode() => elts.GetHashCode();
+        public override int GetHashCode() { return elts.GetHashCode(); }
 
-        public override bool Equals(object obj) => 
-            obj is Sum && ListUtils.equal(elts, (obj as Sum).elts);
+        public override bool Equals(object obj) {
+            return
+                obj is Sum && ListUtils.equal(elts, (obj as Sum).elts);
+        }
+
         
         static List<MathObject> MergeSums(List<MathObject> pElts, List<MathObject> qElts)
         {
@@ -1155,15 +1209,15 @@ namespace Symbolism
             var q = qElts[0];
             var qs = qElts.Cdr();
 
-            var res = RecursiveSimplify(List(p, q));
+            var res = RecursiveSimplify(ListConstructor.List(p, q));
 
             if (res.Count == 0) return MergeSums(ps, qs);
 
             if (res.Count == 1) return MergeSums(ps, qs).Cons(res[0]);
 
-            if (ListUtils.equal(res, List(p, q))) return MergeSums(ps, qElts).Cons(p);
+            if (ListUtils.equal(res, ListConstructor.List(p, q))) return MergeSums(ps, qElts).Cons(p);
 
-            if (ListUtils.equal(res, List(q, p))) return MergeSums(pElts, qs).Cons(q);
+            if (ListUtils.equal(res, ListConstructor.List(q, p))) return MergeSums(pElts, qs).Cons(q);
 
             throw new Exception();
         }
@@ -1195,11 +1249,11 @@ namespace Symbolism
                 if (elts[0] is Sum)
                     return MergeSums(
                         ((Sum)elts[0]).elts,
-                        List(elts[1]));
+                        ListConstructor.List(elts[1]));
 
                 if (elts[1] is Sum)
                     return MergeSums(
-                        List(elts[0]),
+                        ListConstructor.List(elts[0]),
                         ((Sum)elts[1]).elts);
 
                 //////////////////////////////////////////////////////////////////////
@@ -1220,12 +1274,12 @@ namespace Symbolism
 
                     if (P == 0) return new List<MathObject>() { };
 
-                    return List(P);
+                    return ListConstructor.List(P);
                 }
 
-                if (elts[0] == 0) return List(elts[1]);
+                if (elts[0] == 0) return ListConstructor.List(elts[1]);
 
-                if (elts[1] == 0) return List(elts[0]);
+                if (elts[1] == 0) return ListConstructor.List(elts[0]);
                 
                 var p = elts[0];
                 var q = elts[1];
@@ -1236,12 +1290,12 @@ namespace Symbolism
 
                     if (res == 0) return new List<MathObject>() { };
                     
-                    return List(res);
+                    return ListConstructor.List(res);
                 }
 
-                if (OrderRelation.Compare(q, p)) return List(q, p);
+                if (OrderRelation.Compare(q, p)) return ListConstructor.List(q, p);
 
-                return List(p, q);
+                return ListConstructor.List(p, q);
             }
 
             if (elts[0] is Sum)
@@ -1250,7 +1304,7 @@ namespace Symbolism
                         ((Sum)elts[0]).elts, RecursiveSimplify(elts.Cdr()));
 
             return MergeSums(
-                List(elts[0]), RecursiveSimplify(elts.Cdr()));
+                ListConstructor.List(elts[0]), RecursiveSimplify(elts.Cdr()));
         }
 
         public MathObject Simplify()
@@ -1265,8 +1319,11 @@ namespace Symbolism
             return new Sum() { elts = res };
         }
 
-        public override string FullForm() => 
-            String.Join(" + ", elts.ConvertAll(elt => elt.Precedence() < Precedence() ? $"({elt})" : $"{elt}"));
+        public override string FullForm() {
+            return
+            String.Join(" + ", elts.ConvertAll(elt =>
+                string.Format(elt.Precedence() < Precedence() ? "({0})" : "{0}", elt)));
+        }
 
         public override string StandardForm()
         {
@@ -1276,9 +1333,9 @@ namespace Symbolism
                     {
                         var elt_ = elt.Const() < 0 ? elt * -1 : elt;
                                                                                                 
-                        var elt__ = elt.Const() < 0 && elt_ is Sum || (elt is Power && (elt as Power).exp != new Integer(1) / 2) ? $"({elt_})" : $"{elt_}";
+                        var elt__ = string.Format(elt.Const() < 0 && elt_ is Sum || (elt is Power && (elt as Power).exp != new Integer(1) / 2) ? "({0})" : "{0}", elt_);
 
-                        return elt.Const() < 0 ? $"- {elt__}" : $"+ {elt__}";
+                        return string.Format(elt.Const() < 0 ? "- {0}" : "+ {0}", elt__);
                     }));
             
             if (result.StartsWith("+ ")) return result.Remove(0, 2); // "+ x + y"   ->   "x + y"
@@ -1313,15 +1370,15 @@ namespace Symbolism
         public Quotient(params MathObject[] ls)
         { elts = new List<MathObject>(ls); }
 
-        public MathObject Simplify() => elts[0] * (elts[1] ^ -1);
+        public MathObject Simplify() { return elts[0] * (elts[1] ^ -1); }
     }
 
-    public static class Constructors
-    {
-        public static MathObject sqrt(MathObject obj) => obj ^ (new Integer(1) / new Integer(2));
+    // public static class Constructors
+    // {
+    //     public static MathObject sqrt(MathObject obj) { return obj ^ (new Integer(1) / new Integer(2)); }
 
-        public static MathObject and(params MathObject[] ls) => new And() { args = ls.ToList() }.Simplify();
+    //     public static MathObject and(params MathObject[] ls) { return new And() { args = ls.ToList() }.Simplify(); }
 
-        public static MathObject or(params MathObject[] ls) => new Or() { args = ls.ToList() }.Simplify();
-    }
+    //     public static MathObject or(params MathObject[] ls) { return new Or() { args = ls.ToList() }.Simplify(); }
+    // }
 }

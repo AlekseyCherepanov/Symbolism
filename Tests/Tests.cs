@@ -38,9 +38,9 @@ using Symbolism.DeepSelect;
 
 using Symbolism.RationalizeExpression;
 
-using static Symbolism.Constructors;
+// using static Symbolism.Constructors;
 
-using static Symbolism.Trigonometric.Constructors;
+// using static Symbolism.Trigonometric.Constructors;
 
 namespace Tests
 {
@@ -115,7 +115,7 @@ namespace Tests
 
     }
 
-    public class Obj2
+    public class Obj2 : Function
     {
         public Symbol ΣFx;
         public Symbol ΣFy;
@@ -130,25 +130,25 @@ namespace Tests
 
         public Obj2(string name)
         {
-            ΣFx = new Symbol($"{name}.ΣFx");
-            ΣFy = new Symbol($"{name}.ΣFy");
+            ΣFx = new Symbol(string.Format("{0}.ΣFx", name));
+            ΣFy = new Symbol(string.Format("{0}.ΣFy", name));
 
-            m = new Symbol($"{name}.m");
+            m = new Symbol(string.Format("{0}.m", name));
 
-            ax = new Symbol($"{name}.ax");
-            ay = new Symbol($"{name}.ay");
+            ax = new Symbol(string.Format("{0}.ax", name));
+            ay = new Symbol(string.Format("{0}.ay", name));
 
-            F1 = new Symbol($"{name}.F1");
-            F2 = new Symbol($"{name}.F2");
+            F1 = new Symbol(string.Format("{0}.F1", name));
+            F2 = new Symbol(string.Format("{0}.F2", name));
 
-            th1 = new Symbol($"{name}.th1");
-            th2 = new Symbol($"{name}.th2");
+            th1 = new Symbol(string.Format("{0}.th1", name));
+            th2 = new Symbol(string.Format("{0}.th2", name));
 
-            F1x = new Symbol($"{name}.F1x");
-            F2x = new Symbol($"{name}.F2x");
+            F1x = new Symbol(string.Format("{0}.F1x", name));
+            F2x = new Symbol(string.Format("{0}.F2x", name));
 
-            F1y = new Symbol($"{name}.F1y");
-            F2y = new Symbol($"{name}.F2y");
+            F1y = new Symbol(string.Format("{0}.F1y", name));
+            F2y = new Symbol(string.Format("{0}.F2y", name));
         }
 
         public And Equations()
@@ -171,7 +171,7 @@ namespace Tests
         }
     }
 
-    public class Obj3
+    public class Obj3 : Function
     {
         public Symbol ΣFx;
         public Symbol ΣFy;
@@ -186,29 +186,29 @@ namespace Tests
 
         public Obj3(string name)
         {
-            ΣFx = new Symbol($"{name}.ΣFx");
-            ΣFy = new Symbol($"{name}.ΣFy");
+            ΣFx = new Symbol(string.Format("{0}.ΣFx", name));
+            ΣFy = new Symbol(string.Format("{0}.ΣFy", name));
 
-            m = new Symbol($"{name}.m");
+            m = new Symbol(string.Format("{0}.m", name));
 
-            ax = new Symbol($"{name}.ax");
-            ay = new Symbol($"{name}.ay");
+            ax = new Symbol(string.Format("{0}.ax", name));
+            ay = new Symbol(string.Format("{0}.ay", name));
 
-            F1 = new Symbol($"{name}.F1");
-            F2 = new Symbol($"{name}.F2");
-            F3 = new Symbol($"{name}.F3");
+            F1 = new Symbol(string.Format("{0}.F1", name));
+            F2 = new Symbol(string.Format("{0}.F2", name));
+            F3 = new Symbol(string.Format("{0}.F3", name));
 
-            th1 = new Symbol($"{name}.th1");
-            th2 = new Symbol($"{name}.th2");
-            th3 = new Symbol($"{name}.th3");
+            th1 = new Symbol(string.Format("{0}.th1", name));
+            th2 = new Symbol(string.Format("{0}.th2", name));
+            th3 = new Symbol(string.Format("{0}.th3", name));
 
-            F1x = new Symbol($"{name}.F1x");
-            F2x = new Symbol($"{name}.F2x");
-            F3x = new Symbol($"{name}.F3x");
+            F1x = new Symbol(string.Format("{0}.F1x", name));
+            F2x = new Symbol(string.Format("{0}.F2x", name));
+            F3x = new Symbol(string.Format("{0}.F3x", name));
 
-            F1y = new Symbol($"{name}.F1y");
-            F2y = new Symbol($"{name}.F2y");
-            F3y = new Symbol($"{name}.F3y");
+            F1y = new Symbol(string.Format("{0}.F1y", name));
+            F2y = new Symbol(string.Format("{0}.F2y", name));
+            F3y = new Symbol(string.Format("{0}.F3y", name));
         }
 
         public And Equations()
@@ -234,7 +234,7 @@ namespace Tests
         }
     }
 
-    public class Obj5
+    public class Obj5 : Function
     {
         public Symbol ΣFx;
         public Symbol ΣFy;
@@ -249,37 +249,37 @@ namespace Tests
 
         public Obj5(string name)
         {
-            ΣFx = new Symbol($"{name}.ΣFx");
-            ΣFy = new Symbol($"{name}.ΣFy");
+            ΣFx = new Symbol(string.Format("{0}.ΣFx", name));
+            ΣFy = new Symbol(string.Format("{0}.ΣFy", name));
 
-            m = new Symbol($"{name}.m");
+            m = new Symbol(string.Format("{0}.m", name));
 
-            ax = new Symbol($"{name}.ax");
-            ay = new Symbol($"{name}.ay");
+            ax = new Symbol(string.Format("{0}.ax", name));
+            ay = new Symbol(string.Format("{0}.ay", name));
 
-            F1 = new Symbol($"{name}.F1");
-            F2 = new Symbol($"{name}.F2");
-            F3 = new Symbol($"{name}.F3");
-            F4 = new Symbol($"{name}.F4");
-            F5 = new Symbol($"{name}.F5");
+            F1 = new Symbol(string.Format("{0}.F1", name));
+            F2 = new Symbol(string.Format("{0}.F2", name));
+            F3 = new Symbol(string.Format("{0}.F3", name));
+            F4 = new Symbol(string.Format("{0}.F4", name));
+            F5 = new Symbol(string.Format("{0}.F5", name));
 
-            th1 = new Symbol($"{name}.th1");
-            th2 = new Symbol($"{name}.th2");
-            th3 = new Symbol($"{name}.th3");
-            th4 = new Symbol($"{name}.th4");
-            th5 = new Symbol($"{name}.th5");
+            th1 = new Symbol(string.Format("{0}.th1", name));
+            th2 = new Symbol(string.Format("{0}.th2", name));
+            th3 = new Symbol(string.Format("{0}.th3", name));
+            th4 = new Symbol(string.Format("{0}.th4", name));
+            th5 = new Symbol(string.Format("{0}.th5", name));
 
-            F1x = new Symbol($"{name}.F1x");
-            F2x = new Symbol($"{name}.F2x");
-            F3x = new Symbol($"{name}.F3x");
-            F4x = new Symbol($"{name}.F4x");
-            F5x = new Symbol($"{name}.F5x");
+            F1x = new Symbol(string.Format("{0}.F1x", name));
+            F2x = new Symbol(string.Format("{0}.F2x", name));
+            F3x = new Symbol(string.Format("{0}.F3x", name));
+            F4x = new Symbol(string.Format("{0}.F4x", name));
+            F5x = new Symbol(string.Format("{0}.F5x", name));
 
-            F1y = new Symbol($"{name}.F1y");
-            F2y = new Symbol($"{name}.F2y");
-            F3y = new Symbol($"{name}.F3y");
-            F4y = new Symbol($"{name}.F4y");
-            F5y = new Symbol($"{name}.F5y");
+            F1y = new Symbol(string.Format("{0}.F1y", name));
+            F2y = new Symbol(string.Format("{0}.F2y", name));
+            F3y = new Symbol(string.Format("{0}.F3y", name));
+            F4y = new Symbol(string.Format("{0}.F4y", name));
+            F5y = new Symbol(string.Format("{0}.F5y", name));
         }
 
         public And Equations()
@@ -311,7 +311,7 @@ namespace Tests
         }
     }
     
-    public class KinematicObjectABC
+    public class KinematicObjectABC : Function
     {
         public Symbol xA, yA, vxA, vyA, vA, thA;
         public Symbol xB, yB, vxB, vyB, vB, thB;
@@ -323,45 +323,45 @@ namespace Tests
 
         public KinematicObjectABC(string name)
         {
-            xA = new Symbol($"{name}.xA");
-            yA = new Symbol($"{name}.yA");
+            xA = new Symbol(string.Format("{0}.xA", name));
+            yA = new Symbol(string.Format("{0}.yA", name));
 
-            vxA = new Symbol($"{name}.vxA");
-            vyA = new Symbol($"{name}.vyA");
+            vxA = new Symbol(string.Format("{0}.vxA", name));
+            vyA = new Symbol(string.Format("{0}.vyA", name));
 
-            vA = new Symbol($"{name}.vA");
-            thA = new Symbol($"{name}.thA");
-
-
-            xB = new Symbol($"{name}.xB");
-            yB = new Symbol($"{name}.yB");
-
-            vxB = new Symbol($"{name}.vxB");
-            vyB = new Symbol($"{name}.vyB");
-
-            vB = new Symbol($"{name}.vB");
-            thB = new Symbol($"{name}.thB");
+            vA = new Symbol(string.Format("{0}.vA", name));
+            thA = new Symbol(string.Format("{0}.thA", name));
 
 
-            xC = new Symbol($"{name}.xC");
-            yC = new Symbol($"{name}.yC");
+            xB = new Symbol(string.Format("{0}.xB", name));
+            yB = new Symbol(string.Format("{0}.yB", name));
 
-            vxC = new Symbol($"{name}.vxC");
-            vyC = new Symbol($"{name}.vyC");
+            vxB = new Symbol(string.Format("{0}.vxB", name));
+            vyB = new Symbol(string.Format("{0}.vyB", name));
 
-            vC = new Symbol($"{name}.vC");
-            thC = new Symbol($"{name}.thC");
+            vB = new Symbol(string.Format("{0}.vB", name));
+            thB = new Symbol(string.Format("{0}.thB", name));
 
-            tAB = new Symbol($"{name}.tAB");
-            tBC = new Symbol($"{name}.tBC");
-            tAC = new Symbol($"{name}.tAC");
 
-            ax = new Symbol($"{name}.ax");
-            ay = new Symbol($"{name}.ay");
+            xC = new Symbol(string.Format("{0}.xC", name));
+            yC = new Symbol(string.Format("{0}.yC", name));
+
+            vxC = new Symbol(string.Format("{0}.vxC", name));
+            vyC = new Symbol(string.Format("{0}.vyC", name));
+
+            vC = new Symbol(string.Format("{0}.vC", name));
+            thC = new Symbol(string.Format("{0}.thC", name));
+
+            tAB = new Symbol(string.Format("{0}.tAB", name));
+            tBC = new Symbol(string.Format("{0}.tBC", name));
+            tAC = new Symbol(string.Format("{0}.tAC", name));
+
+            ax = new Symbol(string.Format("{0}.ax", name));
+            ay = new Symbol(string.Format("{0}.ay", name));
         }
 
-        public And EquationsAB() =>
-
+        public And EquationsAB() {
+            return
             new And(
 
                 vxB == vxA + ax * tAB,
@@ -371,9 +371,10 @@ namespace Tests
                 yB == yA + vyA * tAB + ay * (tAB ^ 2) / 2
                 
                 );
+        }
 
-        public And EquationsBC() =>
-
+        public And EquationsBC() {
+            return
             new And(
 
                 vxC == vxB + ax * tBC,
@@ -383,9 +384,10 @@ namespace Tests
                 yC == yB + vyB * tBC + ay * (tBC ^ 2) / 2
 
                 );
+        }
 
-        public And EquationsAC() =>
-
+        public And EquationsAC() {
+            return
             new And(
 
                 vxC == vxA + ax * tAC,
@@ -395,19 +397,21 @@ namespace Tests
                 yC == yA + vyA * tAC + ay * (tAC ^ 2) / 2
 
                 );
+        }
 
-        public And TrigEquationsA() =>
-        
+        public And TrigEquationsA() {
+            return
             new And(
 
                 vxA == vA * cos(thA),
                 vyA == vA * sin(thA)
 
                 );
+        }
         
     }
     
-    class Program
+    class Program : Function
     {
         static void AssertEqual(DoubleFloat a, DoubleFloat b, double tolerance = 0.00000001)
         {
@@ -426,17 +430,21 @@ namespace Tests
 
         static void Assert(bool val, string str) { if (!val) Console.WriteLine(str); }
         
-        static And Kinematic(Symbol s, Symbol u, Symbol v, Symbol a, Symbol t) =>
+        static And Kinematic(Symbol s, Symbol u, Symbol v, Symbol a, Symbol t) {
+            return
             new And(
                 v == u + a * t,
                 s == (u + v) * t / 2
             );
+        }
 
-        static And Kinematic(Symbol sA, Symbol sB, Symbol vA, Symbol vB, Symbol a, Symbol tA, Symbol tB) =>
+        static And Kinematic(Symbol sA, Symbol sB, Symbol vA, Symbol vB, Symbol a, Symbol tA, Symbol tB) {
+            return
             new And(
                 vB == vA + a * (tB - tA),
                 sB - sA == (vA + vB) * (tB - tA) / 2);
-        
+        }
+
         static void Main(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
@@ -646,7 +654,7 @@ namespace Tests
 
 
                 Action<MathObject, string> AssertToStringMatch = 
-                    (MathObject obj, string str) => Assert(obj.ToString() == str, $"({str}).ToString()");
+                    (MathObject obj, string str) => Assert(obj.ToString() == str, string.Format("({0}).ToString()", str));
                 
                 MathObject.ToStringForm = MathObject.ToStringForms.Full;
                                 

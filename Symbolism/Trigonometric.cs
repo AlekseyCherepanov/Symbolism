@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using static Symbolism.ListConstructor;
+// using Symbolism.ListConstructor;
 
-using static Symbolism.Trigonometric.Constructors;
+// using Symbolism.Trigonometric.Constructors;
 
 namespace Symbolism.Trigonometric
 {
@@ -65,7 +65,7 @@ namespace Symbolism.Trigonometric
             // n is one of 1 2 3 4 6
 
             if (u is Product &&
-                List<MathObject>(1, 2, 3, 4, 6).Any(elt =>
+                ListConstructor.List<MathObject>(1, 2, 3, 4, 6).Any(elt =>
                     elt == (u as Product).elts[0].Denominator()) &&
                 (u as Product).elts[0].Numerator() is Integer &&
                 (u as Product).elts[1] == Pi)
@@ -233,7 +233,7 @@ namespace Symbolism.Trigonometric
 
             if (ls[0] is Product &&
 
-                List<MathObject>(1, 2, 3, 4, 6)
+                ListConstructor.List<MathObject>(1, 2, 3, 4, 6)
                     .Any(elt => elt == (ls[0] as Product).elts[0].Denominator()) &&
 
                 (ls[0] as Product).elts[0].Numerator() is Integer &&
@@ -446,15 +446,14 @@ namespace Symbolism.Trigonometric
         }
     }
 
-    public static class Constructors
-    {
-        public static MathObject sin(MathObject obj) => new Sin(obj).Simplify();
-        public static MathObject cos(MathObject obj) => new Cos(obj).Simplify();
-        public static MathObject tan(MathObject obj) => new Tan(obj).Simplify();
-
-        public static MathObject asin(MathObject obj) => new Asin(obj).Simplify();
-        public static MathObject atan(MathObject obj) => new Atan(obj).Simplify();
-    }
+    // public static class Constructors
+    // {
+    //     public static MathObject sin(MathObject obj) { return new Sin(obj).Simplify(); }
+    //     public static MathObject cos(MathObject obj) { return new Cos(obj).Simplify(); }
+    //     public static MathObject tan(MathObject obj) { return new Tan(obj).Simplify(); }
+    //     public static MathObject asin(MathObject obj) { return new Asin(obj).Simplify(); }
+    //     public static MathObject atan(MathObject obj) { return new Atan(obj).Simplify(); }
+    // }
 
     public static class Extensions
     {

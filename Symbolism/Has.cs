@@ -39,7 +39,7 @@ namespace Symbolism
                 return false;
             }
 
-            public static bool FreeOf(this MathObject obj, MathObject a) => !obj.Has(a);
+            public static bool FreeOf(this MathObject obj, MathObject a) { return !obj.Has(a); }
         }
     }
 }
